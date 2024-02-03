@@ -27,7 +27,27 @@
                     visibility: hidden; 
                 }
             }
+
+            .astext {
+                background: #33475b;
+                color: #00ff00;
+                font-family: monospace;
+                border: none;
+                margin: 0;
+                padding: 0;
+                cursor: pointer;
+            }
+
+            .hidden{
+                display : none;
+            }
         </style>
+        <script>
+            function showhide() {
+                var div = document.getElementById("yes");
+                div.classList.toggle('hidden'); 
+            }
+        </script>
     </head>
     <body>
 	    <!--http://www.johntitor.com/-->
@@ -62,8 +82,9 @@
                     "<span>> Somehow, the only way to save the world is for me to travel to the past to Jiřinková in 2022, and, out of</span><br/>" +
                     "<span>> a universe of randomness, cross path with your own path, like two droplets in this ocean of infinities...</span><br/><br/>" +
 					
-                    "<span>> <span style=\"background-color:#33475b\">Will you save the world with me, babe?</span></span><br/><br/>" +
-                    "<span>> [TRANSMISSION INTERRUPTED] .... .... ....</span>"
+                    "<span>> Will you save the world with me, babe? <button class=\"astext\" onclick=\"showhide()\">YES</button> / <span style=\"background-color:#33475b\">NO</span></span><br/><br/>" +
+                    "<span>> [TRANSMISSION INTERRUPTED] .... .... ....</span>" + 
+					"<span id=\"yes\" class=\"hidden\"><img src=\"img.jpg\" alt=\"\"></span>"
                 }
             ];
 
@@ -89,4 +110,3 @@
         </script>
     </body>
 </html>
-
