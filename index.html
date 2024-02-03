@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Typing Effects</title>
+        <style>
+            body {
+                background: black;
+            }
+
+            span {
+                color: #00ff00;
+                font-family: monospace;
+            }
+
+            .blinker {
+                opacity: 1;
+                margin-bottom: -2px;
+                height: 15px;
+                margin-left: -5px;
+                border-left: 7px solid #00ff00;
+                animation: blinker 0.9s steps(2, start) infinite;
+            }
+
+            @keyframes blinker {
+                to { 
+                    visibility: hidden; 
+                }
+            }
+        </style>
+    </head>
+    <body>
+	    <!--http://www.johntitor.com/-->
+        <span id="typeText" class="typeing"></span><span class='blinker'>&#32;</span>
+        <script>
+            var data = [
+                {
+                    typeText: 
+					"<span>> Hi Nikola.</span><br/><br/>" +
+					"<span>> My real name is ██████, and, put in simple terms, I come from the future. From your perspective, I guess that makes me something like a time traveler? (- or, technically, a causal anomaly.) I am from 2097, and in my timeline, the world is nothing but a devastated wasteland. But let me explain… In 2056, a full-scale nuclear war wiped out most of the earth and left the surface completely unlivable. I am part of the last group of survivors, hiding in the depth of Prague’s subway corridors, which serves as civilization’s last ark of refuge. For long, we tried to go back the surface, but things have evolved up there, and we are not welcome. We are not going up anymore now, but we still hear the growls at night.</span><br/><br/>" +
+					"<span>> Yet there is a glimpse of hope: in 2081, our last scientist invented a time machine, and we are since able to explore the multi-dimensional branching of the space-time continuum! The device is much simpler than you would expect, really – it is barely more than a gravity distortion system with magnetic units for dual microsingularities, in which we inject electron manifolds to alter the mass-energy field. Seems obvious once you know the trick, right? We spent fifteen more years scouting for every possible reality, every outcome for each version of each event, in the past and future, existing and conceivable. Out of 14,000,605 parallel worldlines we explored, there is just one in which we can save the world; and the key to that is YOU.</span><br/><br/>" +
+					"<span>> I can’t tell you how, nor why, but the event sealing the destiny of mankind is me meeting you. No… It’s much more than that: it is for us to fall so deeply in love that our souls will merge into one. It is reuniting a bond stronger than time and space, that is so profound that it will stitch together the very fabric of existence, transcending reason, causality, and lifetimes. Everything in our predictions is pointing at that. Somehow, the only way to save the world is for me to travel in the past to Jiřinková, in 2022, and, out of a universe of randomness, crossing the path of your being, like two droplets in this ocean of infinity.</span><br/><br/>" +
+					"<span>> Will you save the world with me, babe?</span><br/><br/>"
+                }
+            ];
+
+            var allElements = document.getElementsByClassName("typeing");
+            for (var j = 0; j < allElements.length; j++) {
+            var currentElementId = allElements[j].id;
+            var currentElementIdContent = data[0][currentElementId];
+            var element = document.getElementById(currentElementId);
+            var devTypeText = currentElementIdContent;
+
+            var i = 0, isTag, text;
+            (function type() {
+                text = devTypeText.slice(0, ++i);
+                if (text === devTypeText) return;
+                element.innerHTML = text + `<span class='blinker'>&#32;</span>`;
+                var char = text.slice(-1);
+                if (char === "<") isTag = true;
+                if (char === ">") isTag = false;
+                if (isTag) return type();
+                setTimeout(type, 60);
+            })();
+            }
+        </script>
+    </body>
+</html>
